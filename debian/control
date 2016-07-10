@@ -1,0 +1,74 @@
+Source: folly
+Section: libs
+Priority: extra
+Maintainer: Ryan Goodfellow <rgoodfel@isi.edu>
+Build-Depends: autotools-dev,
+               autoconf-archive,
+               automake,
+               make (>=4),
+               binutils-dev,
+               debhelper (>=9),
+               g++ (>=5),
+               libboost-all-dev,
+               libdouble-conversion-dev,
+               libevent-dev,
+               libgflags-dev,
+               libgoogle-glog-dev,
+               libgtest-dev,
+               libjemalloc-dev,
+               liblz4-dev,
+               liblzma-dev,
+               libsnappy-dev,
+               libssl-dev,
+               libtool
+Standards-Version: 3.9.8
+Homepage: https://github.com/facebook/folly
+
+Package: libfolly57
+Section: libs
+Architecture: amd64
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Facebook Open-Source C++11 Library runtime package
+ Folly (acronymed loosely after Facebook Open Source Library) is a library of 
+ C++11 components designed with practicality and efficiency in mind. Folly 
+ contains a variety of core library components used extensively at Facebook. 
+ In particular, it's often a dependency of Facebook's other open source C++ 
+ efforts and place where those projects can share code.
+ .
+ It complements (as opposed to competing against) offerings such as Boost and 
+ of course std. In fact, we embark on defining our own component only when 
+ something we need is either not available, or does not meet the needed 
+ performance profile. We endeavor to remove things from folly if or when std 
+ or Boost obsoletes them.
+ .
+ Performance concerns permeate much of Folly, sometimes leading to designs 
+ that are more idiosyncratic than they would otherwise be (see e.g. 
+ PackedSyncPtr.h, SmallLocks.h). Good performance at large scale is a unifying
+ theme in all of Folly.
+
+
+Package: libfolly-dev
+Section: libdevel
+Architecture: amd64
+Multi-Arch: same
+Depends: libfolly57 (= ${binary:Version}), ${misc:Depends}
+Description: Facebook Open-Source C++11 Library development package
+ Folly (acronymed loosely after Facebook Open Source Library) is a library of 
+ C++11 components designed with practicality and efficiency in mind. Folly 
+ contains a variety of core library components used extensively at Facebook. 
+ In particular, it's often a dependency of Facebook's other open source C++ 
+ efforts and place where those projects can share code.
+ .
+ It complements (as opposed to competing against) offerings such as Boost and 
+ of course std. In fact, we embark on defining our own component only when 
+ something we need is either not available, or does not meet the needed 
+ performance profile. We endeavor to remove things from folly if or when std 
+ or Boost obsoletes them.
+ .
+ Performance concerns permeate much of Folly, sometimes leading to designs 
+ that are more idiosyncratic than they would otherwise be (see e.g. 
+ PackedSyncPtr.h, SmallLocks.h). Good performance at large scale is a unifying
+ theme in all of Folly.
+
